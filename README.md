@@ -15,7 +15,3 @@
 - [ ] Any Water detector
 - [ ] Any Handle sensor
 - [ ] Any Temperature / Heat sensor
-
-## Usage
-
-
