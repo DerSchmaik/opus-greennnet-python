@@ -30,4 +30,7 @@ class OPUSAPI:
         r = self.auth.request('GET', '/system/info').json()
         return r["systemInfo"]["serialNumber"]
         
-        
+    @property 
+    def version(self) -> str:
+        r = self.auth.request('GET', '/system/info').json()
+        return r["systemInfo"]["version"]

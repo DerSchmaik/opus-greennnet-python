@@ -9,7 +9,7 @@ class Auth:
         self.host = host
         self.username = kwargs.get('username', 'admin')
         self.password = password
-        self.status()
+        self.stat = self.status
         
     @property
     def status(self) -> bool:

@@ -18,11 +18,11 @@ class TwoChannel:
     return self.raw_data["friendlyId"]
 
   @property
-  def state1(self) -> bool:
+  def state_1(self) -> bool:
     return next(value for value in self.raw_data["states"] if value["channel"] == 0)["value"] == "on"
   
   @property
-  def state2(self) -> bool:
+  def state_2(self) -> bool:
     return next(value for value in self.raw_data["states"] if value["channel"] == 1)["value"] == "on"
 
   @property
@@ -41,12 +41,12 @@ class TwoChannel:
     """Update the data of the TwoChannel object."""
     self.raw_data = self.auth.get_device(self.id).json()["device"]
 
-  def change_state1(self, state: bool):
+  def change_state_1(self, state: bool):
     """Change the first state of teh TwoChannel object."""
     r = self.auth.putRequest(f'/devices/{self.id}/state', data=json.dumps({'state': {'functions': [{'key': 'switch', 'value': 'on' if state else 'off'}, {'key': 'channel', 'value': 0}]}}))
     self.update_data()
   
-  def change_state2(self, state: bool):
+  def change_state_2(self, state: bool):
     """Change the second state of the TwoChannel object."""
     r = self.auth.putRequest(f'/devices/{self.id}/state', data=json.dumps({'state': {'functions': [{'key': 'switch', 'value': 'on' if state else 'off'}, {'key': 'channel', 'value': 1}]}}))
     self.update_data()
