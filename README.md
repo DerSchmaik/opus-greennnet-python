@@ -1,5 +1,5 @@
 ## OPUS greenNet python API wrapper
-
+#### Disclaimer: This is my first ever published libary for python so it might be messy and i would not recommend using it for things that have to work reliably. However if you want to build your own libary or help me making mine better take a look at the last section of the readme where you can find some more information about the API behind the project.
 
 ## Supported Devices
 ### Switch
