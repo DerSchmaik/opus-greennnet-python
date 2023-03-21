@@ -1,5 +1,8 @@
 ## OPUS greenNet python API wrapper
-#### Disclaimer: This is my first ever published libary for python so it might be messy and i would not recommend using it for things that have to work reliably. However if you want to build your own libary or help me making mine better take a look at the last section of the readme where you can find some more information about the API behind the project.
+This library provides a simple and convenient way to interact with the OPUS SmartHome Gateway using Python. With this library, you can easily control your OPUS SmartHome devices and build your own custom applications.
+
+Please note that this is my first ever published library for Python, so there may be some rough edges. However, I encourage you to give it a try and provide feedback to help me improve it.
+
 
 ## Supported Devices
 ### Switch
@@ -19,7 +22,11 @@
 - [ ] Any Temperature / Heat sensor
 
 ## Usage
-### Setup:
+
+To get started with the OPUS GreenNet Python API Wrapper, you will need to set up an authentication object using the `Auth` class. You can then use this object to create an instance of the `OPUSAPI` class, which you can use to interact with your OPUS SmartHome devices.
+
+Here is an example of how to set up the authentication object and create an instance of the `OPUSAPI` class:
+
 ``` Python
 # import the libary
 import opus_greennet
@@ -32,7 +39,10 @@ auth = Auth('http://IP_OF_YOUR_GATEWAY:8080', 'PASSWORD_OF_YOUR_GATEWAY')
 opus = OPUSAPI(auth)
 ```
 
-### Print all switches to the console 
+Once you have set up the authentication object and created an instance of the `OPUSAPI` class, you can start interacting with your OPUS SmartHome devices.
+
+Here is an example of how to print all switches to the console:
+
 ``` Python
 # get all onechannel switches
 # other types: two_channel_switches, blind_switches, dimming_switches
@@ -45,7 +55,8 @@ for switch in one_channel_switches:
   print(f"{switch.name} with ID '{switch.id} is located at {switch.location} with state {switch.state}")
 ```
 
-### change the state of a device
+Finally, here is an example of how to change the state of a device:
+
 ``` Python
 # change the state of the first switch in list using change_state
 one_channel_switches[0].change_state(True)
@@ -57,7 +68,7 @@ one_channel_switches[0].change_state(True)
 
 ## Some info about the API
 
-The REST API is exposed by the [OPUS SmartHome Gateway](https://myopus.eu/en/products/smarthome/control/10/opus-smarthome-gateway) at port 8080. There you will also find a UI where you can test and discover the API. To access the API you have to authenticate yourself.
+The REST API is exposed by the [OPUS SmartHome Gateway](https://myopus.eu/en/products/smarthome/control/10/opus-smarthome-gateway) at port 8080. There you will also find a UI where you can test and discover the API. To access the API, you will need to authenticate yourself using the following credentials:
 - Username: "admin"
 - Password: on a sticker on the OPUS SmartHome Gateway. (8 characters long and consists of capital letters and numbers  e.g. "GBA7VD3G")
 
